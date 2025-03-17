@@ -1,5 +1,5 @@
 <script lang="ts">
-	import TheGameOfLife from '$lib/components/TheGameOfLife.svelte';
+	import Profile from '$lib/components/Profile.svelte';
 </script>
 
-<TheGameOfLife />
+<Profile />
