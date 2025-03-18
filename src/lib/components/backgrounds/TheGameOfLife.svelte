@@ -160,7 +160,7 @@
 		}
 		drawGrid();
 		const updateInterval = setInterval(updateGrid, 50);
-		const spawnInterval = setInterval(spawnRandomPattern, 1000);
+		const spawnInterval = setInterval(spawnRandomPattern, 100);
 
 		window.addEventListener('resize', handleResize);
 		canvas.addEventListener('mousedown', handleMouseDown);

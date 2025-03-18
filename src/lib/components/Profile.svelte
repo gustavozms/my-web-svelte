@@ -1,11 +1,20 @@
 <script lang="ts">
-	import TheGameOfLife from './TheGameOfLife.svelte';
+	import { onMount } from 'svelte';
 
-	const name = 'Gustavo Zahorcsak Matias Silvano';
-	const subtitle = 'Software Developer & Bioinformatics Student';
+	import TheGameOfLife from './backgrounds/TheGameOfLife.svelte';
+	import BriansBrain from './backgrounds/BriansBrain.svelte';
+
+	const name: string = 'Gustavo Zahorcsak Matias Silvano';
+	const subtitle: string = 'Software Developer & Bioinformatics Student';
+
+	const randomBool: boolean = Math.random() < 0.5;
 </script>
 
-<TheGameOfLife />
+{#if randomBool}
+	<TheGameOfLife />
+{:else}
+	<BriansBrain />
+{/if}
 
 <div class="fixed inset-0 flex items-center justify-center p-4">
 	<div class="border-system-pink rounded-xl border-2 bg-white p-8">
@@ -15,10 +24,12 @@
 		</div>
 	</div>
 	<a
-		href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+		href={randomBool
+			? 'https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life'
+			: 'https://en.wikipedia.org/wiki/Brian%27s_Brain'}
 		target="_blank"
 		class=" text-system-pink hover:text-system-green fixed right-4 bottom-4 font-bold"
 	>
-		Conway's Game of Life
+		{randomBool ? "Conway's Game of Life" : "Brian's Brain"}
 	</a>
 </div>

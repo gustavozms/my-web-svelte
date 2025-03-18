@@ -22,12 +22,12 @@
     font-weight: 400;
 
     color-scheme: light, dark;
-    color: rgba(255, 255, 255, 0.9);
-    background-color: #242424;
+    color: rgba(0, 0, 0, 1.0);
+    background-color: #ffffff;
 
     font-synthesis: none;
     text-rendering: auto;
 
     font-feature-settings: normal;
-    -webkit-font-feature-settings: normal;   
+    -webkit-font-feature-settings: normal;
 }
