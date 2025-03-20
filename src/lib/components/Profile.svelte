@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	import TheGameOfLife from './backgrounds/TheGameOfLife.svelte';
 	import BriansBrain from './backgrounds/BriansBrain.svelte';
 
@@ -28,7 +26,7 @@
 			? 'https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life'
 			: 'https://en.wikipedia.org/wiki/Brian%27s_Brain'}
 		target="_blank"
-		class=" text-system-pink hover:text-system-green fixed right-4 bottom-4 font-bold"
+		class=" text-system-pink hover:text-system-green fixed right-4 bottom-4 rounded-xl bg-white p-2 font-bold"
 	>
 		{randomBool ? "Conway's Game of Life" : "Brian's Brain"}
 	</a>

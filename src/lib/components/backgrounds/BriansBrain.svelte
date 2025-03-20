@@ -25,7 +25,7 @@
 		calculateGridSize();
 		grid = Array.from({ length: gridSizeX }, () =>
 			Array.from({ length: gridSizeY }, () => ({
-				state: Math.random() > 0.9 ? 1 : 0, // Start with fewer active cells
+				state: Math.random() > 0.5 ? 1 : 0,
 				fadeLevel: 0
 			}))
 		);
@@ -39,16 +39,16 @@
 			for (let y = 0; y < gridSizeY; y++) {
 				const cell = grid[x][y];
 				if (cell.state === 1) {
-					// Active cell (On)
-					context.fillStyle = '#FE2C55'; // Bright red
+					// active
+					context.fillStyle = '#FE2C55';
 					context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
 				} else if (cell.state === 2) {
-					// Dying cell
-					context.fillStyle = `rgba(254, 44, 85, ${1 - cell.fadeLevel})`; // Fading red
+					// transition
+					context.fillStyle = `rgba(254, 44, 85, ${1 - cell.fadeLevel})`;
 					context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
-					grid[x][y].fadeLevel = Math.min(cell.fadeLevel + 0.1, 1); // Gradually fade out
+					grid[x][y].fadeLevel = Math.min(cell.fadeLevel + 0.1, 1);
 				} else {
-					// Inactive cell (Off)
+					// inactive
 					context.fillStyle = 'white';
 					context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
 				}
@@ -67,10 +67,10 @@
 					// Dying -> Off
 					return { state: 0, fadeLevel: 0 };
 				} else if (cell.state === 0 && neighbors === 2) {
-					// Off -> On (if exactly 2 neighbors are On)
+					// Off -> On
 					return { state: 1, fadeLevel: 0 };
 				}
-				return cell; // Otherwise, remain Off
+				return cell;
 			})
 		);
 		grid = newGrid;
@@ -84,7 +84,7 @@
 				if (i === 0 && j === 0) continue;
 				const nx = (x + i + gridSizeX) % gridSizeX;
 				const ny = (y + j + gridSizeY) % gridSizeY;
-				count += grid[nx][ny].state === 1 ? 1 : 0; // Only count On cells
+				count += grid[nx][ny].state === 1 ? 1 : 0;
 			}
 		}
 		return count;
@@ -109,7 +109,7 @@
 
 	const spawnRandomPattern = () => {
 		const patterns = [
-			// Glider-like pattern
+			// Glider
 			[
 				[0, 0],
 				[1, 0],
@@ -149,7 +149,7 @@
 
 			pattern.forEach(([dx, dy]) => {
 				if (x + dx < gridSizeX && y + dy < gridSizeY) {
-					grid[x + dx][y + dy] = { state: 1, fadeLevel: 0 }; // Set cells to On
+					grid[x + dx][y + dy] = { state: 1, fadeLevel: 0 };
 				}
 			});
 		}

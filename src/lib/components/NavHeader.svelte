@@ -11,8 +11,8 @@
 			{#each navItems as { name, path }}
 				<a
 					href={path}
-					class="hover-bg-white-500 rounded-md p-2 text-lg font-semibold
-					text-white hover:text-gray-800"
+					class="hover-bg-white-500 hover:text-system-green rounded-md p-2 text-lg
+					font-semibold text-white"
 				>
 					{name}
 				</a>
