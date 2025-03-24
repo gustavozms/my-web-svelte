@@ -5,4 +5,11 @@ type ProjectData = {
 	link: string;
 };
 
-export type { ProjectData };
+type Task = {
+	id: string;
+	label: string;
+	isComplete: boolean;
+	createdAt: Date;
+};
+
+export type { ProjectData, Task };

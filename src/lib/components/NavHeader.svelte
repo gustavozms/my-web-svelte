@@ -1,7 +1,8 @@
 <script lang="ts">
 	const navItems = [
 		{ name: 'Profile', path: './profile' },
-		{ name: 'Projects', path: './projects' }
+		{ name: 'Projects', path: './projects' },
+		{ name: 'Playground', path: './playground' }
 	];
 </script>
 

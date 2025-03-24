@@ -4,20 +4,22 @@
 	import NavHeader from '$lib/components/NavHeader.svelte';
 
 	let { children } = $props();
+
 	let navHeaderHeight: number = $state(0);
 
 	onMount(() => {
-		const head = document.querySelector('NavHeader');
-		if (head) {
-			console.log(head);
-			console.log(head.clientHeight.toFixed(20));
-			navHeaderHeight = head.clientHeight;
+		const navHeader = document.getElementById('NavHeader');
+		if (navHeader) {
+			console.log(navHeader);
+			console.log(navHeader.clientHeight.toFixed(20));
+
+			navHeaderHeight = navHeader.clientHeight;
 		}
 	});
 </script>
 
 <div class="flex min-h-screen flex-col">
-	<div class="NavHeader">
+	<div id="NavHeader">
 		<NavHeader />
 	</div>
 	<main class="flex-1 pt-[70px]">

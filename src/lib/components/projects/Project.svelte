@@ -11,7 +11,7 @@
 >
 	<img
 		class="h-96 w-full object-cover md:h-auto md:w-48"
-		src={projectData.icon}
+		src={projectData.icon.length > 0 ? projectData.icon : 'spider-web.svg'}
 		alt="{projectData.title} image"
 	/>
 	<div class="flex flex-col justify-between p-4 leading-normal">

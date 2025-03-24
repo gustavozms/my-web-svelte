@@ -32,6 +32,12 @@
 			title: 'Chaos',
 			tools: ['Swift', 'SpriteKit', 'UIKit'],
 			link: 'https://apps.apple.com/us/app/chaos/id6471442446'
+		},
+		{
+			icon: '',
+			title: 'Task List',
+			tools: ['SvelteKit', 'TypeScript', ''],
+			link: './task_list'
 		}
 	];
 </script>
