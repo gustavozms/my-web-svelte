@@ -3,13 +3,21 @@ type ProjectData = {
 	title: string;
 	tools: string[];
 	link: string;
+	targetBlank?: boolean;
+};
+
+type TableData = {
+	rowLabels: string[];
+	colLabels: string[];
 };
 
 type Task = {
-	id: string;
+	id?: string;
 	label: string;
 	isComplete: boolean;
 	createdAt: Date;
 };
 
-export type { ProjectData, Task };
+type TaskRemoteData = Task & { id: string };
+
+export type { ProjectData, TableData, Task, TaskRemoteData };

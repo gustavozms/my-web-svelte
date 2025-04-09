@@ -6,7 +6,7 @@
 	];
 </script>
 
-<nav class="bg-system-pink fixed top-0 z-50 w-full overflow-auto">
+<nav id="NavHeader" class="bg-system-pink fixed top-0 z-50 w-full overflow-auto">
 	<div class="mx-auto flex max-w-7xl justify-center px-4 py-4">
 		<div class="flex gap-8">
 			{#each navItems as { name, path }}

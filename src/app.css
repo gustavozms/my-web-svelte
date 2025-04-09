@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-/* prefix(tw); */
+@plugin "daisyui";
 
 @theme {
 

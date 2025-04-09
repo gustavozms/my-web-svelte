@@ -11,17 +11,18 @@
 		const navHeader = document.getElementById('NavHeader');
 		if (navHeader) {
 			console.log(navHeader);
-			console.log(navHeader.clientHeight.toFixed(20));
+			console.log('offSetH: ', navHeader.offsetHeight);
 
-			navHeaderHeight = navHeader.clientHeight;
+			navHeaderHeight = navHeader.offsetHeight;
+
+			console.log(navHeaderHeight);
 		}
 	});
 </script>
 
-<div class="flex min-h-screen flex-col">
-	<div id="NavHeader">
-		<NavHeader />
-	</div>
+<div class="flex flex-col">
+	<NavHeader />
+
 	<main class="flex-1 pt-[70px]">
 		{@render children()}
 	</main>
