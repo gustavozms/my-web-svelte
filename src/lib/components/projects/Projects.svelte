@@ -23,7 +23,7 @@
 		},
 		{
 			icon: 'bee.svg',
-			title: 'Bee',
+			title: 'Academy GameJam - 2024',
 			tools: ['Swift', 'SpriteKit', 'SwiftUI'],
 			link: 'https://github.com/msventurini/AcademyGameJam'
 		},
@@ -36,8 +36,14 @@
 		{
 			icon: '',
 			title: 'Task List',
-			tools: ['SvelteKit', 'TypeScript', ''],
+			tools: ['SvelteKit', 'TypeScript'],
 			link: './task_list'
+		},
+		{
+			icon: '',
+			title: 'My Cell',
+			tools: ['Unity', 'C#'],
+			link: 'https://gustavozms.github.io/my-cell/'
 		}
 	];
 </script>
