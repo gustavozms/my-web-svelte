@@ -8,11 +8,11 @@
 	const randomBool: boolean = Math.random() < 0.5;
 </script>
 
-{#if randomBool}
-	<TheGameOfLife />
-{:else}
-	<BriansBrain />
-{/if}
+<!-- {#if randomBool} -->
+<TheGameOfLife />
+<!-- {:else} -->
+<!-- <BriansBrain /> -->
+<!-- {/if} -->
 
 <div class="fixed inset-0 flex items-center justify-center p-4">
 	<div class="border-system-pink rounded-xl border-2 bg-white p-8">
