@@ -10,12 +10,7 @@
 	onMount(() => {
 		const navHeader = document.getElementById('NavHeader');
 		if (navHeader) {
-			console.log(navHeader);
-			console.log('offSetH: ', navHeader.offsetHeight);
-
 			navHeaderHeight = navHeader.offsetHeight;
-
-			console.log(navHeaderHeight);
 		}
 	});
 </script>

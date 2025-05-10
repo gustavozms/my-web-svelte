@@ -44,6 +44,12 @@
 			title: 'My Cell',
 			tools: ['Unity', 'C#'],
 			link: 'https://gustavozms.github.io/my-cell/'
+		},
+		{
+			icon: '',
+			title: 'Stats Calculator',
+			tools: ['Typescript', 'Svelte', 'ECharts'],
+			link: './statistics'
 		}
 	];
 </script>
