@@ -5,12 +5,12 @@ import { initializeApp } from 'firebase/app';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: 'AIzaSyCBS_Ji040RFDOpPNUHXvU8-zviEn7P7A8',
+	apiKey: '',
 	authDomain: 'my-web-tasks.firebaseapp.com',
 	projectId: 'my-web-tasks',
 	storageBucket: 'my-web-tasks.firebasestorage.app',
-	messagingSenderId: '793772032528',
-	appId: '1:793772032528:web:2645695e97bc8a0abc0095'
+	messagingSenderId: '',
+	appId: ''
 };
 
 // Initialize Firebase
