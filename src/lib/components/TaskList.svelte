@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { getApps, initializeApp, getApp } from 'firebase/app';
 	import {
 		Firestore,
@@ -190,4 +190,4 @@
 			{/each}
 		</tbody>
 	</table>
-</div>
+</div> -->
