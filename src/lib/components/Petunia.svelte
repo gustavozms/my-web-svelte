@@ -80,7 +80,11 @@
 				{#each row as letter}
 					{#if guessedLetters.includes(letter)}
 						<h1
-							class="border-primary h-10 w-10 content-center rounded-md border-2 text-center select-none"
+							class="border-primary h-10 w-10 content-center rounded-md border-2 text-center select-none {keyWordID.includes(
+								letter
+							)
+								? 'bg-green-200'
+								: 'bg-red-200'}"
 						>
 							{letter}
 						</h1>
