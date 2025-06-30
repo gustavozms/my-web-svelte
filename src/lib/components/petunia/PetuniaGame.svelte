@@ -49,7 +49,7 @@
 
 <svelte:window onkeydown={handleKeyDown} />
 
-<div class=" flex flex-col items-center justify-center gap-2 p-8">
+<div class="flex flex-col items-center justify-center gap-2 rounded-md border-2 bg-gray-100 p-8">
 	<div class="avatar">
 		<div class="w-64 rounded">
 			<img alt="petunia" src="grandiflora.jpg" />
