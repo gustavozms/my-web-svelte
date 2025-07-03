@@ -3,11 +3,11 @@
 	import PetuniaAbout from './PetuniaAbout.svelte';
 
 	import HomeIcon from '@lucide/svelte/icons/house';
-	import BackIcon from '@lucide/svelte/icons/arrow-big-left';
 
 	import { onMount } from 'svelte';
+	import PetuniaCredits from './PetuniaCredits.svelte';
 
-	type NavigationItems = 'MENU' | 'GAME' | 'COLLECTION' | 'ABOUT' | null;
+	type NavigationItems = 'MENU' | 'GAME' | 'COLLECTION' | 'ABOUT' | 'CREDITS' | null;
 
 	let currentPage: NavigationItems = $state(getPage());
 
@@ -28,7 +28,8 @@
 				storedPage === 'MENU' ||
 				storedPage === 'GAME' ||
 				storedPage === 'COLLECTION' ||
-				storedPage === 'ABOUT'
+				storedPage === 'ABOUT' ||
+				storedPage === 'CREDITS'
 			) {
 				return storedPage;
 			}
@@ -36,6 +37,12 @@
 		return 'MENU';
 	}
 
+	function goToMenu() {
+		if (typeof window !== 'undefined') {
+			localStorage.setItem('petuniaPage', 'MENU');
+			currentPage = getPage();
+		}
+	}
 	function goToCollection() {
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('petuniaPage', 'COLLECTION');
@@ -48,23 +55,45 @@
 			currentPage = getPage();
 		}
 	}
+	function goToCredits() {
+		if (typeof window !== 'undefined') {
+			localStorage.setItem('petuniaPage', 'CREDITS');
+			currentPage = getPage();
+		}
+	}
 </script>
 
-<div class="fixed inset-0 flex flex-col items-center justify-center bg-indigo-400">
+<div
+	class="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-r from-violet-600 to-indigo-600"
+>
 	{#if currentPage == 'MENU'}
-		<div class="m-8 flex flex-col gap-2 rounded-md border-2 bg-gray-100 p-2">
-			<h1 class="text-bold my-2 text-6xl">Menu</h1>
-			<div class="avatar">
-				<div class="w-64 rounded">
-					<img alt="petunia" src="grandiflora.jpg" />
-				</div>
-			</div>
-			<button class="btn btn-primary" onclick={goToCollection}> Collection</button>
-			<button class="btn btn-primary" onclick={goToAbout}> About</button>
+		<img class="h-full w-full object-none" src="petunia_background.png" alt="background" />
+		<div class="absolute inset-0 z-10 m-8 flex flex-col gap-2 rounded-md">
+			<img class="max-w-lg" src="petunia_logo.png" alt="" />
+			<button class="btn btn-xl btn-outline ml-24 w-64 text-white" onclick={goToCollection}>
+				Petunias</button
+			>
+			<button class="btn btn-xl btn-outline ml-24 w-64 text-white" onclick={goToAbout}>
+				Tutorial</button
+			>
+			<button class="btn btn-xl btn-outline ml-24 w-64 text-white" onclick={goToCredits}>
+				Créditos</button
+			>
 		</div>
 	{:else if currentPage == 'COLLECTION'}
+		<button class="btn btn-outline fixed top-4 left-4 text-white" onclick={goToMenu}
+			><HomeIcon /></button
+		>
 		<PetuniaCollection />
 	{:else if currentPage == 'ABOUT'}
+		<button class="btn btn-outline fixed top-4 left-4 text-white" onclick={goToMenu}
+			><HomeIcon /></button
+		>
 		<PetuniaAbout />
+	{:else if currentPage == 'CREDITS'}
+		<button class="btn btn-outline fixed top-4 left-4 text-white" onclick={goToMenu}
+			><HomeIcon /></button
+		>
+		<PetuniaCredits />
 	{/if}
 </div>

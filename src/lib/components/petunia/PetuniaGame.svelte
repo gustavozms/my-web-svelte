@@ -9,27 +9,44 @@
 		['V', 'W', 'X', 'Y', 'Z']
 	];
 
-	const keyWord: string = $state('grandiflora');
+	const props: { index: number; keyWord: string; src: string; onReturn: () => void } = $props();
 	const keyWordID = $derived(
-		Array.from(new Set(keyWord.toUpperCase().replaceAll(' ', '').split(''))).join('')
+		Array.from(new Set(props.keyWord.toUpperCase().replaceAll(' ', '').split('').sort())).join('')
+	);
+
+	const hasWon = $derived(
+		Array.from(keyWordID).every((letter) => guessedLettersID.includes(letter))
 	);
 
 	let selectedLetter: string = $state('');
 	let guessedLetters: string = $state('');
+	const guessedLettersID = $derived(Array.from(new Set(guessedLetters.split('').sort())).join(''));
 
 	function handleSubmit() {
 		if (!selectedLetter) return;
 
 		guessedLetters += selectedLetter;
 		selectedLetter = '';
+
+		if (hasWon) {
+			if (typeof window !== 'undefined') {
+				let unlocked: string | null;
+
+				unlocked = localStorage.getItem('unlocked');
+
+				if (unlocked) {
+					unlocked = unlocked.substring(0, props.index) + '1' + unlocked.substring(props.index + 1);
+					localStorage.setItem('unlocked', unlocked);
+				}
+			}
+
+			setTimeout(goToCollection, 2000);
+			setTimeout(props.onReturn, 2000);
+		}
 	}
 
 	function handleKeyDown(event: KeyboardEvent) {
 		const key = event.key.toUpperCase();
-
-		console.log(guessedLetters.includes(keyWordID));
-		console.log('guessed: ' + guessedLetters);
-		console.log('keyword: ' + keyWordID);
 
 		if (event.key === 'Backspace') {
 			selectedLetter = '';
@@ -45,6 +62,12 @@
 			selectedLetter = key;
 		}
 	}
+
+	function goToCollection() {
+		if (typeof window !== 'undefined') {
+			localStorage.setItem('petuniaPage', 'COLLECTION');
+		}
+	}
 </script>
 
 <svelte:window onkeydown={handleKeyDown} />
@@ -52,15 +75,15 @@
 <div class="flex flex-col items-center justify-center gap-2 rounded-md border-2 bg-gray-100 p-8">
 	<div class="avatar">
 		<div class="w-64 rounded">
-			<img alt="petunia" src="grandiflora.jpg" />
+			<img alt="petunia" src={props.src} />
 		</div>
 	</div>
 
 	<div class="my-2 flex gap-2">
-		{#each keyWord.toUpperCase().split('') as letter}
-			{#if guessedLetters.includes(keyWordID)}
-				<h1 class="text-2xl text-green-500">{letter}</h1>
-			{:else if guessedLetters.toUpperCase().includes(letter.toUpperCase())}
+		{#each props.keyWord.toUpperCase().split('') as letter}
+			{#if hasWon}
+				<h1 class="text-2xl text-green-500 italic">{letter}</h1>
+			{:else if guessedLettersID.includes(letter.toUpperCase())}
 				<h1 class="text-2xl">{letter}</h1>
 			{:else if letter == ' '}
 				<h1 class="text-2xl">{' '}</h1>
@@ -108,7 +131,8 @@
 			disabled={!selectedLetter}
 			onclick={() => (selectedLetter = '')}><XIcon /></button
 		>
-		<button class="btn btn-primary" disabled={!selectedLetter} onclick={handleSubmit}>Submit</button
+		<button class="btn btn-primary" disabled={!selectedLetter} onclick={handleSubmit}
+			>Confirmar</button
 		>
 	</div>
 </div>
