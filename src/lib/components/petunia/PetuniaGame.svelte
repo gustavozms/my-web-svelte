@@ -40,7 +40,7 @@
 				}
 			}
 
-			setTimeout(goToCollection, 2000);
+			setTimeout(goToCollection, 1000);
 			setTimeout(props.onReturn, 2000);
 		}
 	}

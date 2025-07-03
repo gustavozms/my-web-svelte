@@ -69,14 +69,14 @@
 	{#if currentPage == 'MENU'}
 		<img class="h-full w-full object-none" src="petunia_background.png" alt="background" />
 		<div class="absolute inset-0 z-10 m-8 flex flex-col gap-2 rounded-md">
-			<img class="max-w-lg" src="petunia_logo.png" alt="" />
-			<button class="btn btn-xl btn-outline ml-24 w-64 text-white" onclick={goToCollection}>
+			<img class="max-w-lg" src="petunia_logo.png" alt="logo" />
+			<button class="btn btn-xl btn-outline ml-20 w-64 text-white" onclick={goToCollection}>
 				Petunias</button
 			>
-			<button class="btn btn-xl btn-outline ml-24 w-64 text-white" onclick={goToAbout}>
+			<button class="btn btn-xl btn-outline ml-20 w-64 text-white" onclick={goToAbout}>
 				Tutorial</button
 			>
-			<button class="btn btn-xl btn-outline ml-24 w-64 text-white" onclick={goToCredits}>
+			<button class="btn btn-xl btn-outline ml-20 w-64 text-white" onclick={goToCredits}>
 				Créditos</button
 			>
 		</div>
